@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Sala Arcade</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<section id="menu">
+  <h1>SALA ARCADE</h1>
+  <p class="author">Proyecto de <b>Alicia Moreno Contreras</b> · UVUS: <b>mfr3597</b></p>
+  <p class="sub">Elige un juego (o pulsa del 1 al 9, o 0 para la ruleta). En ordenador, Esc vuelve al menú y P pausa. En móvil se juega con los botones táctiles o deslizando el dedo.</p>
+  <div id="wallet"><i class="coin"></i><div class="wl"><small>TUS FICHAS</small><strong id="mb">0</strong></div><button class="b" id="shopb" type="button">Tienda</button><button class="b" id="achb" type="button">Logros</button></div>
+  <p class="sub wn">Se ganan superando niveles en los juegos y se gastan en la ruleta o en la tienda de skins.</p>
+  <div id="cards"></div>
+</section>
+<section id="ach" hidden>
+  <div id="achbar"><button class="b" id="achback" type="button">Menú</button><b>LOGROS</b><span id="ac" class="wb">0 / 0</span></div>
+  <div class="pbar"><i id="abar"></i></div>
+  <div id="achl"></div>
+</section>
+<section id="shop" hidden>
+  <div id="shopbar"><button class="b" id="shopback" type="button">Menú</button><b>TIENDA</b><span class="wb"><i class="coin sm"></i><b id="sb">0</b></span></div>
+  <div id="shopl"></div>
+</section>
+<section id="game" hidden>
+  <div id="bar"><button class="b" id="back" type="button">Menú</button><button class="b" id="pz" type="button" aria-label="Pausa">II</button><span id="gt"></span><span id="sw" style="display:contents"><span>Puntos <b id="sc">0</b></span><span>Récord <b id="hi">0</b></span></span><span class="wb"><i class="coin sm"></i><b id="bk">0</b></span><b id="lv"></b></div>
+  <div id="stage"><canvas id="cv"></canvas><div id="toast" hidden></div><div id="ov"><h2 id="ot"></h2><p id="om"></p><button class="b" id="ob" type="button"></button></div></div>
+<div id="pad"><div class="dp"><button data-k="ArrowUp" aria-label="Arriba">▲</button><button data-k="ArrowLeft" aria-label="Izquierda">◀</button><button data-k="ArrowDown" aria-label="Abajo">▼</button><button data-k="ArrowRight" aria-label="Derecha">▶</button></div><button class="act" data-k="Space" aria-label="Acción">●</button></div>
+</section>
+<div id="atoast" hidden></div>
+<script src="js/core.js"></script>
+<script src="js/games/galaga.js"></script>
+<script src="js/games/pacman.js"></script>
+<script src="js/games/snake.js"></script>
+<script src="js/games/breakout.js"></script>
+<script src="js/games/pong.js"></script>
+<script src="js/games/tetris.js"></script>
+<script src="js/games/donkey-kong.js"></script>
+<script src="js/games/frogger.js"></script>
+<script src="js/games/asteroids.js"></script>
+<script src="js/games/roulette.js"></script>
+<script src="js/economy.js"></script>
+<script src="js/shop.js"></script>
+<script src="js/achievements.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>
