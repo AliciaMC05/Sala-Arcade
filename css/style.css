@@ -1,0 +1,78 @@
+/* Sala Arcade · estilos de toda la web (menú, juegos, tienda, logros) */
+:root{--bg:#07060f;--panel:#12102a;--line:#2b2760;--fg:#eaf0ff;--muted:#a6a8d6;--acc:#ffd23f;color-scheme:dark;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+:root:not([data-theme="light"]){--bg:#07060f;--panel:#12102a;--fg:#eaf0ff}
+:root[data-theme="dark"]{--bg:#07060f;--panel:#12102a;--fg:#eaf0ff}
+*{box-sizing:border-box}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+html,body{margin:0;height:100%;background:var(--bg);color:var(--fg);font-family:system-ui,sans-serif}
+body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:9;background:repeating-linear-gradient(transparent 0 2px,rgba(0,0,0,.16) 2px 3px)}
+[hidden]{display:none!important}
+.px{font-family:"Press Start 2P","Courier New",monospace}
+#menu{height:100%;overflow:auto;padding:32px 20px;max-width:940px;margin:0 auto}
+h1{font-family:"Press Start 2P","Courier New",monospace;font-size:clamp(22px,5.4vw,46px);line-height:1.2;margin:0 0 14px;text-shadow:3px 3px 0 #ff4f7b,-3px -3px 0 #3ef2c4}
+.sub{color:var(--muted);margin:0 0 28px;line-height:1.6}
+#cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:18px}
+.card{all:unset;box-sizing:border-box;cursor:pointer;background:var(--panel);border:2px solid var(--c);padding:18px;display:flex;flex-direction:column;gap:10px;transition:transform .12s,box-shadow .12s}
+.card:hover,.card:focus-visible{transform:translateY(-4px);box-shadow:0 0 0 2px var(--c),0 8px 28px -6px var(--c)}
+.card:focus-visible{outline:2px solid #fff;outline-offset:3px}
+.card strong{font-family:"Press Start 2P","Courier New",monospace;font-size:16px;color:var(--c)}
+.card em{font-style:normal;line-height:1.5}
+.card small{color:var(--muted);line-height:1.5}
+.card .n{font-family:"Press Start 2P",monospace;font-size:11px;color:var(--muted)}
+#game{height:100%;display:flex;flex-direction:column}
+#bar{display:flex;flex-wrap:wrap;align-items:center;gap:8px 20px;padding:10px 16px;border-bottom:1px solid var(--line);font:11px "Press Start 2P","Courier New",monospace}
+#bar b{color:var(--acc)}#gt{margin-right:auto}
+button.b{font:12px "Press Start 2P","Courier New",monospace;background:var(--acc);color:#1a1200;border:0;padding:10px 14px;cursor:pointer}
+button.b:focus-visible{outline:2px solid #fff;outline-offset:2px}
+#stage{flex:1;min-height:0;position:relative}
+#cv{touch-action:none;position:absolute;inset:0;width:100%;height:100%;object-fit:contain;background:#000}
+#ov{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px;text-align:center;padding:20px;background:rgba(7,6,15,.84)}
+#ov h2{font:clamp(18px,4vw,30px) "Press Start 2P","Courier New",monospace;color:var(--acc);margin:0}
+#ov p{margin:0;line-height:1.7;max-width:34em}
+.author{margin:0 0 16px;padding-left:12px;border-left:3px solid var(--acc);color:var(--muted);font-size:14px;line-height:1.6}.author b{color:var(--fg)}
+#wallet{display:flex;flex-wrap:wrap;align-items:center;gap:16px;max-width:640px;margin:0 0 8px;padding:14px 18px;background:linear-gradient(135deg,#2b1f63,#12102a 70%);border:2px solid var(--acc);box-shadow:0 0 28px -8px var(--acc),inset 0 0 0 1px rgba(255,255,255,.08)}
+.coin{display:inline-block;flex:none;width:46px;height:46px;border-radius:50%;background:radial-gradient(circle at 35% 30%,#fff6bf,#ffd23f 45%,#c98a00);border:3px solid #8a5a00;box-shadow:inset 0 0 0 4px rgba(255,255,255,.25),0 0 16px rgba(255,210,63,.5);animation:cflip 3s ease-in-out infinite}
+.coin.sm{width:18px;height:18px;border-width:2px;box-shadow:inset 0 0 0 2px rgba(255,255,255,.25);animation:none}
+@keyframes cflip{0%,70%,100%{transform:scaleX(1)}85%{transform:scaleX(.2)}}
+.wl{display:flex;flex-direction:column;gap:8px}
+.wl small{font:9px "Press Start 2P","Courier New",monospace;color:var(--muted);letter-spacing:.08em}
+.wl strong{font:700 28px "Press Start 2P","Courier New",monospace;color:var(--acc);text-shadow:0 0 14px rgba(255,210,63,.55);transform-origin:left center}
+.wl strong.pop{animation:wpop .5s ease-out}
+@keyframes wpop{0%{transform:scale(1.35);color:#fff}100%{transform:scale(1)}}
+#wallet .b{margin-left:auto}
+.wn{font-size:13px;margin:0 0 24px}
+.wb{display:inline-flex;align-items:center;gap:6px}
+.sc canvas{width:100%;height:auto;display:block;border-radius:6px;border:1px solid var(--line)}
+@media (prefers-reduced-motion:reduce){.coin,.wl strong.pop{animation:none}}
+#ach{height:100%;overflow:auto;padding:20px;max-width:940px;margin:0 auto}
+#achbar{display:flex;align-items:center;gap:16px;font:12px "Press Start 2P","Courier New",monospace}#achbar b,#achbar span{color:var(--acc)}
+.pbar{height:10px;background:#1c1a40;border:1px solid var(--line);margin:14px 0 4px}.pbar i{display:block;height:100%;width:0;background:linear-gradient(90deg,#ffb347,#ffd23f);transition:width .5s}
+#ach h3{font:12px "Press Start 2P","Courier New",monospace;color:var(--acc);margin:24px 0 10px;line-height:1.6}
+.arow{display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:10px}
+.ac{display:flex;gap:12px;padding:12px;background:var(--panel);border:2px solid var(--line);opacity:.8}
+.ac.ok{opacity:1;border-color:var(--acc);box-shadow:0 0 18px -8px var(--acc)}
+.ai{flex:none;width:46px;height:46px;display:grid;place-items:center;font-size:24px;background:#0a0716;border-radius:8px;filter:grayscale(1)}.ac.ok .ai{filter:none;background:#2b1f63}
+.ac>div{min-width:0;flex:1}.ac b{display:block;font-size:15px}.ac small{display:block;color:var(--muted);margin:2px 0 8px;line-height:1.4}
+.ac em{display:block;font-style:normal;font-size:12px;color:var(--muted);margin-top:6px}.ac.ok em{color:var(--acc)}
+.ac .pb{height:6px;background:#0a0716;border-radius:3px;overflow:hidden}.ac .pb i{display:block;height:100%;background:#6b7bff}.ac.ok .pb i{background:var(--acc)}
+#atoast{position:fixed;left:50%;bottom:18px;transform:translateX(-50%);z-index:30;display:flex;align-items:center;gap:12px;padding:10px 18px;background:linear-gradient(135deg,#3a2a00,#1a1200);border:2px solid var(--acc);box-shadow:0 0 24px -4px var(--acc);max-width:92%}
+#atoast i{font-style:normal;font-size:28px}#atoast b{display:block;font:10px "Press Start 2P","Courier New",monospace;color:var(--acc);margin-bottom:6px}#atoast span{font-size:14px}
+#shop{height:100%;overflow:auto;padding:20px;max-width:940px;margin:0 auto}
+#shopbar{display:flex;align-items:center;gap:16px;font:12px "Press Start 2P","Courier New",monospace}
+#shopbar b{color:var(--acc)}
+#shop h3{font:12px "Press Start 2P","Courier New",monospace;color:var(--acc);margin:24px 0 10px;line-height:1.6}
+.srow{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:10px}
+.sc{background:var(--panel);border:2px solid var(--line);padding:10px;display:flex;flex-direction:column;gap:8px;font-size:14px}
+.sc.on{border-color:var(--acc)}
+.sc i{display:block;height:28px;border-radius:4px}
+.sc button{font:700 12px system-ui,sans-serif;padding:8px;background:var(--acc);color:#1a1200;border:0;cursor:pointer}
+.sc button:disabled{background:#3a3f66;color:#a6a8d6;cursor:default}
+.sc button:focus-visible{outline:2px solid #fff;outline-offset:2px}
+#toast{position:absolute;top:10px;left:50%;transform:translateX(-50%);max-width:92%;text-align:center;background:var(--acc);color:#1a1200;padding:8px 14px;font:11px "Press Start 2P","Courier New",monospace;line-height:1.5;z-index:3}
+#pad{display:none;justify-content:space-between;align-items:center;padding:8px 16px;user-select:none;-webkit-user-select:none;touch-action:none}
+#pad .dp{display:grid;grid-template-columns:repeat(3,58px);grid-auto-rows:58px;gap:6px}
+#pad button{font-size:20px;color:var(--fg);background:var(--panel);border:2px solid var(--line);border-radius:12px;touch-action:none;-webkit-tap-highlight-color:transparent}
+#pad button:active{background:var(--line)}
+.dp button:nth-child(1){grid-area:1/2}.dp button:nth-child(2){grid-area:2/1}.dp button:nth-child(3){grid-area:2/2}.dp button:nth-child(4){grid-area:2/3}
+#pad .act{width:100px;height:100px;border-radius:50%;background:var(--acc);color:#1a1200;border-color:#fff3;font-size:24px}
+@media (pointer:coarse){#pad{display:flex}}
